@@ -14,6 +14,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from accounts.views import signup_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +26,7 @@ from django.contrib import admin
 
 # Use include() to add URLS from the catalog application and authentication system
 from django.urls import include
+
 
 
 urlpatterns = [
@@ -56,4 +58,8 @@ urlpatterns += [
 #Add Django site authentication urls (for login, logout, password management)
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
+]
+
+urlpatterns += [
+    path('signup/', signup_view, name="signup"),
 ]
